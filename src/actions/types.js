@@ -1,0 +1,3 @@
+export const FETCH_NAME = 'FETCH_NAME';
+export const FETCH_NAME_SUCCESS = 'FETCH_NAME_SUCCESS';
+export const FETCH_NAME_ERROR = 'FETCH_NAME_ERROR';
