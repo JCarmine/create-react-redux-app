@@ -1,12 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { createMockData } from '../../mocks/mockData';
+import { createMockName } from '../../mocks/mockData';
 
 import App from '../index';
 
 describe('<App />', () => {
   const defaultProps = {
-    data: createMockData()
+    name: createMockName()
   };
 
   const generateProps = overrides => ({
@@ -14,10 +14,18 @@ describe('<App />', () => {
     ...overrides
   });
 
-  const props = generateProps({});
+  const props = generateProps({ name: 'Sample Override'});
   const wrapper = shallow(<App {...props} />);
 
-  it('renders the child component', () => {
-    expect(wrapper.exists('ChildComponent')).toBeTruthy();
+  it('renders the title', () => {
+    expect(wrapper.exists('.appTitle')).toBeTruthy();
+  });
+
+  it('renders the logo', () => {
+    expect(wrapper.find('.get-started-logo').text()).toEqual('Sample Override');
+  });
+
+  it('renders the logo', () => {
+    expect(wrapper.exists('.get-started-logo')).toBeTruthy();
   });
 });

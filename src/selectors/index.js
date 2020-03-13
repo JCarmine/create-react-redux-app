@@ -5,6 +5,6 @@ export const getAppName = state => {
   }
 }
 
-export const isLoading = state => state.getIn('loading');
+export const isLoading = state => state.get('loading');
 
-export const hasError = state => state.getIn('error');
+export const hasError = state => state.get('error');

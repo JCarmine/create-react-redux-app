@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
-import App from '../components';
-import { getAppName } from '../selectors';
+import App from '../components/App';
+import { getAppName, isLoading } from '../selectors';
 import { fetchAppName } from '../actions';
 
 const mapStateToProps = state => ({
-  appName: getAppName(state)
+  appName: getAppName(state),
+  isLoading: isLoading(state)
 });
 
 const mapDispatchToProps = dispatch => ({
