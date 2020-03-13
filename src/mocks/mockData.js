@@ -1,3 +1,4 @@
 export const createMockName = overrides => ({
-  name: 'Create React Redux App'
+  name: 'Create React Redux App',
+  ...overrides
 });

@@ -1,7 +1,7 @@
-export const getAppName = state => {
-  const appName = state.get('name');
-  if (appName) {
-    return appName;
+export const getData = state => {
+  const data = state.get('data');
+  if (data) {
+    return data;
   }
 }
 

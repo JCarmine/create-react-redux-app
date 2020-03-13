@@ -4,15 +4,15 @@ import * as types from '../actions/types';
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case types.FETCH_APP_NAME:
+    case types.FETCH_DATA:
       return state
         .set('error', false)
         .set('loading', true);
-    case types.FETCH_APP_NAME_SUCCESS:
+    case types.FETCH_DATA_SUCCESS:
       return state
         .set('loading', false)
-        .set('name', fromJS(action.payload.results[0].name.last));
-    case types.FETCH_APP_NAME_ERROR:
+        .set('data', fromJS(action.payload.results[0].name.last));
+    case types.FETCH_DATA_ERROR:
       return state
         .set('loading', false)
         .set('error', true);

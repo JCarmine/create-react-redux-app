@@ -1,15 +1,16 @@
 import { connect } from 'react-redux';
 import App from '../components/App';
-import { getAppName, isLoading } from '../selectors';
-import { fetchAppName } from '../actions';
+import { getData, isLoading, hasError } from '../selectors';
+import { fetchData } from '../actions';
 
 const mapStateToProps = state => ({
-  appName: getAppName(state),
-  isLoading: isLoading(state)
+  data: getData(state),
+  isLoading: isLoading(state),
+  hasError: hasError(state)
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchAppName: () => dispatch(fetchAppName())
+  fetchData: () => dispatch(fetchData())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

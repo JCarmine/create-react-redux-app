@@ -1,14 +1,14 @@
 import { createAction } from 'redux-api-middleware';
 import * as types from './types';
 
-export const fetchAppName = () => (
+export const fetchData = () => (
   createAction({
     endpoint: `https://randomuser.me/api/`,
     method: 'GET',
     types: [
-      types.FETCH_APP_NAME,
-      types.FETCH_APP_NAME_SUCCESS,
-      types.FETCH_APP_NAME_ERROR
+      types.FETCH_DATA,
+      types.FETCH_DATA_SUCCESS,
+      types.FETCH_DATA_ERROR
     ]
   })
 );
