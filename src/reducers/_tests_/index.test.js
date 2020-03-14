@@ -1,8 +1,8 @@
 import { fromJS } from 'immutable';
-import reducer from '../index';
-import * as types from '../../actions/types';
-import initialState from '../initialState';
-import { createMockData } from '../../mocks/mockData';
+import reducer from 'reducers/index';
+import * as types from 'constants/types';
+import initialState from 'store/initialState.js';
+import { createMockData } from 'mocks/mockData';
 
 describe('the reducer for the App', () => {
   describe('the initial state', () => {

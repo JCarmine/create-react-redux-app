@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
-import App from '../components/App';
-import { getName, isLoading, hasError } from '../selectors';
-import { fetchData } from '../actions';
+import App from 'components/App';
+import { getName, isLoading, hasError } from 'selectors';
+import { fetchData } from 'actions';
 
 const mapStateToProps = state => ({
   name: getName(state),

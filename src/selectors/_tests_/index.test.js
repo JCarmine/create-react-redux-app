@@ -1,6 +1,6 @@
 import { fromJS } from 'immutable';
-import { createMockData, createMockName } from '../../mocks/mockData';
-import { getName, isLoading, hasError } from '../index';
+import { createMockData, createMockName } from 'mocks/mockData';
+import { getName, isLoading, hasError } from 'selectors/index';
 
 describe('getData', () => {
   const state = fromJS({

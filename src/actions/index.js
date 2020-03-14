@@ -1,5 +1,5 @@
 import { createAction } from 'redux-api-middleware';
-import * as types from '../constants/types';
+import * as types from 'constants/types';
 
 export const fetchData = () => (
   createAction({

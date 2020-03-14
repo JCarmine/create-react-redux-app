@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import logo from '../images/react-redux-logo.png';
-import loadingIndicator from '../images/loading-indicator.gif';
+import logo from 'images/react-redux-logo.png';
+import loadingIndicator from 'images/loading-indicator.gif';
 
-import '../styles/App.css';
+import 'styles/App.css';
 
 const App = ({ name, isLoading, hasError, fetchData }) => {
   return (
