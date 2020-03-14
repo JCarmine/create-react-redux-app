@@ -19,7 +19,8 @@ const App = ({ name, isLoading, hasError, fetchData }) => {
         {isLoading && <img className="loading-indicator" src={loadingIndicator} alt="" />}
       </div>
       <button 
-        className="get-data-button" 
+        className="get-data-button"
+        disabled={isLoading}
         onClick={fetchData}>
           Get Data
       </button>
