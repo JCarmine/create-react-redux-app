@@ -5,13 +5,13 @@ import loadingIndicator from '../images/loading-indicator.gif';
 
 import '../styles/App.css';
 
-const App = ({ data, isLoading, hasError, fetchData }) => {
+const App = ({ name, isLoading, hasError, fetchData }) => {
   return (
     <div className="app">
       <h1 className="app-title">
         {hasError 
-          ? 'Error loading data from API.' 
-          : data
+          ? 'Error loading data from API.'
+          : (name && name.last) || 'Create React Redux App'
         }
       </h1>
       <div className="image-container">
@@ -27,12 +27,12 @@ const App = ({ data, isLoading, hasError, fetchData }) => {
   );
 };
 
-// App.defaultProps = {
-//   data: null
-// };
+App.defaultProps = {
+  data: null
+};
 
 App.propTypes = {
-  data: PropTypes.string.isRequired
+  data: PropTypes.object
 };
 
 export default App;

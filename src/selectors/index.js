@@ -1,7 +1,8 @@
-export const getData = state => {
-  const data = state.get('data');
+export const getName = state => {
+  const data = state.getIn(['data', 'results']);
+
   if (data) {
-    return data;
+    return data.get(0).get('name').toJS();
   }
 }
 

@@ -1,72 +1,61 @@
 import { fromJS } from 'immutable';
-import { createMockWeatherData } from '../../mocks/mockData';
-import {
-  getWeatherData,
-  isWeatherDataLoading,
-  hasWeatherDataLoadingError
-} from '../index';
+import { createMockData, createMockName } from '../../mocks/mockData';
+import { getName, isLoading, hasError } from '../index';
 
-describe('getWeatherData', () => {
-  const mockWeatherData = createMockWeatherData();
+describe('getData', () => {
   const state = fromJS({
-    weatherApp: {
-      data: mockWeatherData
-    }
+    data: createMockData(), 
+    loading: false,
+    error: false
   });
 
-  it('returns the weather data from the state', () => {
-    expect(getWeatherData(state)).toEqual(mockWeatherData);
-  });
-});
-
-describe('isWeatherDataLoading', () => {
-  describe('when we are in the process of loading weather data', () => {
-    const state = fromJS({
-      weatherApp: {
-        isWeatherDataLoading: true
-      }
-    });
-
-    it('returns true', () => {
-      expect(isWeatherDataLoading(state)).toBeTruthy();
-    });
-  });
-
-  describe('when we are not in the process of loading weather data', () => {
-    const state = fromJS({
-      weatherApp: {
-        isWeatherDataLoading: false
-      }
-    });
-
-    it('returns true', () => {
-      expect(isWeatherDataLoading(state)).toBeFalsy();
-    });
+  it('returns the data from the state', () => {
+    expect(getName(state)).toEqual(createMockName());
   });
 });
 
-describe('hasWeatherDataLoadingError', () => {
-  describe('when there is an error loading weather data', () => {
+describe('isLoading', () => {
+  describe('when loading data', () => {
     const state = fromJS({
-      weatherApp: {
-        hasWeatherDataLoadingError: true
-      }
+      loading: true
     });
 
+    // console.log(state)
+
     it('returns true', () => {
-      expect(hasWeatherDataLoadingError(state)).toBeTruthy();
+      expect(isLoading(state)).toBeTruthy();
     });
   });
 
-  describe('when there is not an error loading weather data', () => {
+  describe('when not loading data', () => {
     const state = fromJS({
-      weatherApp: {
-        hasWeatherDataLoadingError: false
-      }
+      loading: false
     });
 
     it('returns false', () => {
-      expect(isWeatherDataLoading(state)).toBeFalsy();
+      expect(isLoading(state)).toBeFalsy();
+    });
+  });
+});
+
+describe('hasError', () => {
+  describe('when there is an error loading data', () => {
+    const state = fromJS({
+      error: true
+    });
+
+    it('returns true', () => {
+      expect(hasError(state)).toBeTruthy();
+    });
+  });
+
+  describe('when there is not an error loading data', () => {
+    const state = fromJS({
+      error: false
+    });
+
+    it('returns false', () => {
+      expect(isLoading(state)).toBeFalsy();
     });
   });
 });

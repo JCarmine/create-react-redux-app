@@ -11,7 +11,7 @@ const reducer = (state = initialState, action) => {
     case types.FETCH_DATA_SUCCESS:
       return state
         .set('loading', false)
-        .set('data', fromJS(action.payload.results[0].name.last));
+        .set('data', fromJS(action.payload));
     case types.FETCH_DATA_ERROR:
       return state
         .set('loading', false)

@@ -1,7 +1,7 @@
 import { fromJS } from 'immutable';
 
 const initialState = fromJS({
-  data: 'Create React Redux App',
+  data: null,
   loading: false,
   error: false
 });

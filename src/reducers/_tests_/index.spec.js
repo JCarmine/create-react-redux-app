@@ -2,84 +2,82 @@ import { fromJS } from 'immutable';
 import reducer from '../index';
 import * as types from '../../actions/types';
 import initialState from '../initialState';
-import { createMockWeatherData } from '../../mocks/mockData';
+import { createMockData } from '../../mocks/mockData';
 
-describe('the reducer for the WeatherApp', () => {
+describe('the reducer for the App', () => {
   describe('the initial state', () => {
-    const weatherAppInitialState = initialState.get('weatherApp');
+    it('indicates that there is no data loaded', () => {
+      expect(initialState.get('data')).toBeFalsy();
+    });
 
     it('indicates that the weather data is not loading', () => {
-      expect(weatherAppInitialState.get('isWeatherDataLoading')).toBeFalsy();
+      expect(initialState.get('loading')).toBeFalsy();
     });
 
     it('indicates that there was an error loading weather data', () => {
-      expect(weatherAppInitialState.get('hasWeatherDataLoadingError')).toBeFalsy();
-    });
-
-    it('indicates that there is no weather data loaded', () => {
-      expect(weatherAppInitialState.get('data')).toBeFalsy();
+      expect(initialState.get('error')).toBeFalsy();
     });
   });
 
-  describe('when receiving a FETCH_WEATHER_DATA action', () => {
+  describe('when receiving a FETCH_DATA action', () => {
     const state = fromJS({
-      hasWeatherDataLoadingError: true,
-      isWeatherDataLoading: false
+      error: true,
+      loading: false
     });
     const action = {
-      type: types.FETCH_WEATHER_DATA,
+      type: types.FETCH_DATA,
     };
 
     it('indicates that there is no data loading error', () => {
       const nextState = reducer(state, action);
-      expect(nextState.getIn(['weatherApp', 'hasWeatherDataLoadingError'])).toBeFalsy();
+      expect(nextState.get('error')).toBeFalsy();
     });
 
-    it('indicates that the weather data is loading', () => {
+    it('indicates that the data is loading', () => {
       const nextState = reducer(state, action);
-      expect(nextState.getIn(['weatherApp', 'isWeatherDataLoading'])).toBeTruthy();
+      expect(nextState.get('loading')).toBeTruthy();
     });
   });
 
-  describe('when receiving a FETCH_WEATHER_DATA_SUCCESS action', () => {
-    const mockWeatherData = createMockWeatherData();
+  describe('when receiving a FETCH_DATA_SUCCESS action', () => {
+    const mockData = createMockData();
     const state = fromJS({
-      isWeatherDataLoading: true,
-      data: null
+      data: null,
+      loading: true
     });
     const action = {
-      type: types.FETCH_WEATHER_DATA_SUCCESS,
-      payload: mockWeatherData
+      type: types.FETCH_DATA_SUCCESS,
+      payload: mockData
     };
 
     it('adds the results to the state', () => {
       const nextState = reducer(state, action);
-      expect(nextState.getIn(['weatherApp', 'data']).toJS()).toEqual(mockWeatherData);
+      expect(nextState.get('data').toJS()).toEqual(mockData);
     });
 
-    it('indicates that the weather data is not loading', () => {
+    it('indicates that the data is not loading', () => {
       const nextState = reducer(state, action);
-      expect(nextState.getIn(['weatherApp', 'isWeatherDataLoading'])).toBeFalsy();
+      expect(nextState.get('loading')).toBeFalsy();
     });
   });
 
-  describe('when receiving a FETCH_WEATHER_DATA_ERROR action', () => {
+  describe('when receiving a FETCH_DATA_ERROR action', () => {
     const state = fromJS({
-      isWeatherDataLoading: true,
-      hasWeatherDataLoadingError: false
+      loading: true,
+      error: false
     });
     const action = {
-      type: types.FETCH_WEATHER_DATA_ERROR
+      type: types.FETCH_DATA_ERROR
     };
 
-    it('indicates that the weather data is not loading', () => {
+    it('indicates that the data is not loading', () => {
       const nextState = reducer(state, action);
-      expect(nextState.getIn(['weatherApp', 'isWeatherDataLoading'])).toBeFalsy();
+      expect(nextState.get('loading')).toBeFalsy();
     });
 
-    it('indicates that there was an error loading the weather data', () => {
+    it('indicates that there was an error loading the data', () => {
       const nextState = reducer(state, action);
-      expect(nextState.getIn(['weatherApp', 'hasWeatherDataLoadingError'])).toBeTruthy();
+      expect(nextState.get('error')).toBeTruthy();
     });
   });
 });
