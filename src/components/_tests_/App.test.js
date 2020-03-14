@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { createMockData } from '../../mocks/mockData';
 
 import App from '../App';
 

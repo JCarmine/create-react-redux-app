@@ -1,6 +1,6 @@
 import { fromJS } from 'immutable';
-import initialState from './initialState';
-import * as types from '../actions/types';
+import initialState from '../store/initialState';
+import * as types from '../constants/types';
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {

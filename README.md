@@ -1,5 +1,5 @@
 # Create React Redux App
-Description goes here.
+Set up a modern React/Redux web app by running one command. The Redux store is pre-configured and accepts an initial state. Template files for actions, reducers, and selectors are included providing a completely functional Redux data-flow, out of the box. redux-api-middleware is also included to allow for making API calls from the Action Creators. Once the app is running, click the "Get Data" button to initiate an API call 
 
 It is built using:
 * [react](https://github.com/facebook/react)
@@ -7,6 +7,9 @@ It is built using:
 * [redux-thunk](https://github.com/reduxjs/redux-thunk)
 * [redux-api-middleware](https://github.com/agraboso/redux-api-middleware)
 * [immutable.js](https://github.com/immutable-js/immutable-js)
+* [jest](https://github.com/facebook/jest)
+* [enzyme](https://github.com/enzymejs/enzyme)
+* [redux-devtools-extension](https://github.com/zalmoxisus/redux-devtools-extension)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
