@@ -1,5 +1,5 @@
 # Create React Redux App
-Set up a modern React/Redux web app by running one command. The Redux store is pre-configured and accepts an initial state. Template files for actions, reducers, and selectors are included providing a completely functional Redux data-flow, out of the box. redux-api-middleware is also included to allow for making API calls from the Action Creators. Once the app is running, click the "Get Data" button to initiate an API call 
+Set up a modern React/Redux web app by running one command. The Redux store is pre-configured and accepts an initial state. Template files for actions, reducers, and selectors are included providing a completely functional Redux data-flow, out of the box. redux-api-middleware is also included to allow for making API calls from the Action Creators. Once the app is running, click the "Get Data" button to initiate an API call, update the redux store with the response, and map data to the view.s
 
 It is built using:
 * [react](https://github.com/facebook/react)
